@@ -1,7 +1,12 @@
 ---
 - hosts: all
-  vars_files:
-    - vars/main.yml
+
+  collections:
+    - geerlingguy.php_roles
+
   roles:
-    - { role: geerlingguy.php_roles.php }
+    - php
+    - role: php-versions
+      vars:
+        php_version: '7.3'
     
