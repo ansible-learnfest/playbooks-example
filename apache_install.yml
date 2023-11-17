@@ -1,14 +1,14 @@
 ---
 - name: Apache server installed
   hosts: all
-  become: yes
+  become: true
   tasks:
-  - name: latest Apache version installed
-    yum:
-      name: httpd
-      state: latest
-  - name: Apache enabled and running
-    service:
-      name: httpd
-      enabled: true
-      state: started
+    - name: Latest Apache version installed
+      ansible.builtin.yum:
+        name: httpd
+        state: latest
+    - name: Apache enabled and running
+      ansible.builtin.service:
+        name: httpd
+        enabled: true
+        state: started
